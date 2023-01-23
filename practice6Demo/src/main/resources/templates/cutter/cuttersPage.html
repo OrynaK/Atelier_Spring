@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head data-th-replace="fragments/headers::head(title='All Cutters')"></head>
+
+<body>
+<div class="container">
+    <!-- define the fragment that can be used on any other page -->
+    <div data-th-fragment="top"
+         style="border:0px solid #ccc;padding:5px;margin-bottom:20px;background-color:#eee;text-align:left;">
+        <a data-th-href="@{/}">Home</a>
+        | <a data-th-href="@{/cutters}">All Cutters</a>
+        | <a data-th-href="@{/addCutter}">Add Cutters</a>
+        | <a data-th-href="@{/cutterById}">Cutter by ID</a>
+        | <a data-th-href="@{/updateCutter}">Update Surname</a>
+    </div>
+
+
+    <h2>Cutters</h2>
+
+    <table class="table table-hover">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Delete</th>
+        </tr>
+        <tr data-th-each="cutterInfo:${allCutters}">
+            <td data-th-utext="${cutterInfo.id}">..</td>
+            <td data-th-utext="${cutterInfo.name}">..</td>
+            <td data-th-utext="${cutterInfo.surname}">..</td>
+            <td>
+                <form data-th-action="@{/deleteCutter}" method="POST">
+                    <input type="hidden" name="id" data-th-value="${cutterInfo.id}"/>
+                    <button type="submit" class="btn btn-danger" style="background-color: crimson">Delete</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>

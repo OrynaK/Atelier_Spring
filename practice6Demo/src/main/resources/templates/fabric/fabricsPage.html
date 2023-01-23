@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head data-th-replace="fragments/headers::head(title='All Fabrics')"></head>
+
+<body>
+<div class="container">
+    <!-- define the fragment that can be used on any other page -->
+    <div data-th-fragment="top"
+         style="border:0px solid #ccc;padding:5px;margin-bottom:20px;background-color:#eee;text-align:left;">
+        <a data-th-href="@{/}">Home</a>
+        | <a data-th-href="@{/fabrics}">All Fabrics</a>
+        | <a data-th-href="@{/addFabric}">Add Fabric</a>
+        | <a data-th-href="@{/fabricById}">Fabric by ID</a>
+        | <a data-th-href="@{/updateFabric}">Update Width</a>
+
+    </div>
+
+
+    <h2>Fabrics</h2>
+
+    <table class="table table-hover">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Width</th>
+            <th>Price per meter</th>
+            <th>Delete</th>
+        </tr>
+        <tr data-th-each="fabricInfo : ${allFabrics}">
+            <td data-th-utext="${fabricInfo.id}">..</td>
+            <td data-th-utext="${fabricInfo.name}">..</td>
+            <td data-th-utext="${fabricInfo.width}">..</td>
+            <td data-th-utext="${fabricInfo.pricePerMeter}">..</td>
+            <td>
+                <form data-th-action="@{/deleteFabric}" method="POST">
+                    <input type="hidden" name="id" data-th-value="${fabricInfo.id}"/>
+                    <button type="submit" class="btn btn-danger" style="background-color: crimson">Delete</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>

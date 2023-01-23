@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<!-- replace with head tag from headers.html -->
+<head data-th-replace="fragments/headers::head(title='Add Fabric')"></head>
+
+<body>
+<div class="container">
+    <!-- replace with top fragment from fabricsPage.html -->
+    <div data-th-replace="fabric/fabricsPage::top">....</div>
+
+    <h2>Add Fabric</h2>
+    <!--    <div data-th-if="${errorMessage!=null}"
+            style="color:red;font-style:italic" data-th-utext="${errorMessage}">..</div> -->
+
+    <form data-th-action="@{/addFabric}" data-th-object="${addFabricForm}" method="POST">
+        <div class="form-group">
+            <label data-th-for="name" data-th-class="${#fields.hasErrors('name')}? fieldError">Name</label>
+            <input type="text" class="form-control" placeholder="Enter Name" data-th-field="*{name}"/>
+        </div>
+        <div class="form-group">
+            <label data-th-for="width" data-th-class="${#fields.hasErrors('width')}? fieldError">Width</label>
+            <input type="text" class="form-control" placeholder="Enter Width" data-th-field="*{width}"/>
+        </div>
+        <div class="form-group">
+            <label data-th-for="pricePerMeter" data-th-class="${#fields.hasErrors('pricePerMeter')}? fieldError">Price per meter</label>
+            <input type="text" class="form-control" placeholder="Enter Price per meter" data-th-field="*{pricePerMeter}"/>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-success" value="Add"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>

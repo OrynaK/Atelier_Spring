@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Clients</title>
+    <!-- See configuration in WebMvcConfig.java -->
+    <link href="/css/app.css" rel="stylesheet" media="screen"/>
+    <link data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <script data-th-src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script data-th-src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script data-th-src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+
+<body>
+<div class="container">
+    <!-- define the fragment that can be used on any other page -->
+    <div data-th-fragment="top"
+         style="border:0px solid #ccc;padding:5px;margin-bottom:20px;background-color:#eee;text-align:left;">
+        <a data-th-href="@{/clients}">Clients</a>
+        | <a data-th-href="@{/cutters}">Cutters</a>
+        | <a data-th-href="@{/fabrics}">Fabrics</a>
+        | <a data-th-href="@{/models}">Models</a>
+        | <a data-th-href="@{/receipts}">Receipts</a>
+
+    </div>
+
+    <h2>ATELIER</h2>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<!-- replace with head tag from headers.html -->
+<head data-th-replace="fragments/headers::head(title='Add Model')"></head>
+
+<body>
+<div class="container">
+    <!-- replace with top fragment from modelsPage.html -->
+    <div data-th-replace="model/modelsPage::top">....</div>
+
+    <h2>Add Model</h2>
+    <!--    <div data-th-if="${errorMessage!=null}"
+            style="color:red;font-style:italic" data-th-utext="${errorMessage}">..</div> -->
+
+    <form data-th-action="@{/addModel}" data-th-object="${addModelForm}" method="POST">
+        <div class="form-group">
+            <label data-th-for="name" data-th-class="${#fields.hasErrors('name')}? fieldError">Name</label>
+            <input type="text" class="form-control" placeholder="Enter Name" data-th-field="*{name}"/>
+        </div>
+        <div class="form-group">
+            <label data-th-for="proposedFabric" data-th-class="${#fields.hasErrors('proposedFabric')}? fieldError">Proposed fabric</label>
+            <input type="text" class="form-control" placeholder="Enter Proposed fabric" data-th-field="*{proposedFabric}"/>
+        </div>
+        <div class="form-group">
+            <label data-th-for="tailoringPrice" data-th-class="${#fields.hasErrors('tailoringPrice')}? fieldError">Tailoring price</label>
+            <input type="text" class="form-control" placeholder="Enter Tailoring price" data-th-field="*{tailoringPrice}"/>
+        </div>
+        <div class="form-group">
+            <label data-th-for="consumption" data-th-class="${#fields.hasErrors('consumption')}? fieldError">Consumption</label>
+            <input type="text" class="form-control" placeholder="Enter Consumption" data-th-field="*{consumption}"/>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-success" value="Add"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>

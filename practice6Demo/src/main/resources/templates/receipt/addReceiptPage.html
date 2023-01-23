@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<!-- replace with head tag from headers.html -->
+<head data-th-replace="fragments/headers::head(title='Add Receipt')"></head>
+
+<body>
+<div class="container">
+    <!-- replace with top fragment from receiptsPage.html -->
+    <div data-th-replace="receipt/receiptsPage::top">....</div>
+
+    <h2>Add Receipt</h2>
+    <!--    <div data-th-if="${errorMessage!=null}"
+            style="color:red;font-style:italic" data-th-utext="${errorMessage}">..</div> -->
+
+    <form data-th-action="@{/addReceipt}" data-th-object="${addReceiptForm}" method="POST">
+        <div class="form-group">
+            <label data-th-for="modelId" data-th-class="${#fields.hasErrors('modelId')}? fieldError">Model ID</label>
+            <input type="text" class="form-control" placeholder="Enter Model ID" data-th-field="*{modelId}"/>
+        </div>
+        <div class="form-group">
+            <label data-th-for="fabricId" data-th-class="${#fields.hasErrors('fabricId')}? fieldError">Fabric ID</label>
+            <input type="text" class="form-control" placeholder="Enter Fabric ID" data-th-field="*{fabricId}"/>
+        </div>
+        <div class="form-group">
+            <label data-th-for="clientId" data-th-class="${#fields.hasErrors('clientId')}? fieldError">Client ID</label>
+            <input type="text" class="form-control" placeholder="Enter Client ID" data-th-field="*{clientId}"/>
+        </div>
+        <div class="form-group">
+            <label data-th-for="cutterId" data-th-class="${#fields.hasErrors('cutterId')}? fieldError">Cutter ID</label>
+            <input type="text" class="form-control" placeholder="Enter Cutter ID" data-th-field="*{cutterId}"/>
+        </div>
+        <div class="form-group">
+            <label data-th-for="dateAcceptance" data-th-class="${#fields.hasErrors('dateAcceptance')}? fieldError">Acceptance date</label>
+            <input type="text" class="form-control" placeholder="Enter Acceptance date" data-th-field="*{dateAcceptance}"/>
+        </div>
+        <div class="form-group">
+            <label data-th-for="dateFitting" data-th-class="${#fields.hasErrors('dateFitting')}? fieldError">Fitting date</label>
+            <input type="text" class="form-control" placeholder="Enter Fitting date" data-th-field="*{dateFitting}"/>
+        </div>
+        <div class="form-group">
+            <label data-th-for="dueDate" data-th-class="${#fields.hasErrors('dueDate')}? fieldError">Due date</label>
+            <input type="text" class="form-control" placeholder="Enter Due date" data-th-field="*{dueDate}"/>
+        </div>
+        <div class="form-group">
+            <label data-th-for="status" data-th-class="${#fields.hasErrors('status')}? fieldError">Status</label>
+            <input type="text" class="form-control" placeholder="Enter Status" data-th-field="*{status}"/>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-success" value="Add"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>

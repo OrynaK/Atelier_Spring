@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head data-th-replace="fragments/headers::head(title='All Receipts')"></head>
+
+<body>
+<div class="container">
+    <!-- define the fragment that can be used on any other page -->
+    <div data-th-fragment="top"
+         style="border:0px solid #ccc;padding:5px;margin-bottom:20px;background-color:#eee;text-align:left;">
+        <a data-th-href="@{/}">Home</a>
+        | <a data-th-href="@{/receipts}">All Receipts</a>
+        | <a data-th-href="@{/addReceipt}">Add Receipt</a>
+        | <a data-th-href="@{/receiptById}">Receipt by ID</a>
+        | <a data-th-href="@{/updateReceipt}">Update Fitting date</a>
+
+    </div>
+
+
+    <h2>Receipts</h2>
+
+    <table class="table table-hover">
+        <tr>
+            <th>ID</th>
+            <th>Model ID</th>
+            <th>Fabric ID</th>
+            <th>Client ID</th>
+            <th>Cutter ID</th>
+            <th>Acceptance date</th>
+            <th>Fitting ID</th>
+            <th>Due ID</th>
+            <th>Status(done/not done)</th>
+            <th>Delete</th>
+
+        </tr>
+        <tr data-th-each="receiptInfo : ${allReceipts}">
+            <td data-th-utext="${receiptInfo.id}">..</td>
+            <td data-th-utext="${receiptInfo.modelId}">..</td>
+            <td data-th-utext="${receiptInfo.fabricId}">..</td>
+            <td data-th-utext="${receiptInfo.clientId}">..</td>
+            <td data-th-utext="${receiptInfo.cutterId}">..</td>
+            <td data-th-utext="${receiptInfo.dateAcceptance}">..</td>
+            <td data-th-utext="${receiptInfo.dateFitting}">..</td>
+            <td data-th-utext="${receiptInfo.dueDate}">..</td>
+            <td data-th-utext="${receiptInfo.status}">..</td>
+            <td>
+                <form data-th-action="@{/deleteReceipt}" method="POST">
+                    <input type="hidden" name="id" data-th-value="${receiptInfo.id}"/>
+                    <button type="submit" class="btn btn-danger" style="background-color: crimson">Delete</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>
